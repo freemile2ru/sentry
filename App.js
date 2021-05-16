@@ -34,11 +34,8 @@ Sentry.init({
   enableNative: false,
   environment: 'development',
   logLevel: 3,
-  debug: true,
-  beforeSend(event) {
-    delete event.dist;
-    return event;
-  },
+  release: '1.0',
+  dist: 'v1',
 });
 
 let originalHandler = ErrorUtils.getGlobalHandler();
