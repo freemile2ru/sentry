@@ -33,6 +33,12 @@ Sentry.init({
   dsn: 'https://09e60221ff1a4e3cbe21fb212ed48629@o52241.ingest.sentry.io/5761533',
   enableNative: false,
   environment: 'development',
+  logLevel: 3,
+  debug: true,
+  beforeSend(event) {
+    delete event.dist;
+    return event;
+  },
 });
 
 let originalHandler = ErrorUtils.getGlobalHandler();
