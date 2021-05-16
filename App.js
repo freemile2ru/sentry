@@ -35,6 +35,12 @@ Sentry.init({
   environment: 'development',
 });
 
+let originalHandler = ErrorUtils.getGlobalHandler();
+ErrorUtils.setGlobalHandler((error, isFatal) => {
+  Sentry.captureException(error);
+  originalHandler(error, isFatal);
+});
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -79,6 +85,13 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <TouchableOpacity
+            onPress={() => {
+              let a;
+              console.log(a.works());
+            }}>
+            <Text>Break me</Text>
+          </TouchableOpacity>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
