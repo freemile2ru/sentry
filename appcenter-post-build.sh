@@ -9,6 +9,7 @@ if [ "$AGENT_JOBSTATUS" == "Succeeded" ]; then
 
     SENTRY_VERSION="$BUNDLE_ID_IOS-$APP_VERSION"
     
+    mkdir "$APPCENTER_SOURCE_DIRECTORY/dist"
 
     cp "$APPCENTER_SOURCE_DIRECTORY/index.ios.map" "$APPCENTER_SOURCE_DIRECTORY/dist/index.ios.map"
     cp "$APPCENTER_SOURCE_DIRECTORY/dummy-sourcemap-main.jsbundle" "$APPCENTER_SOURCE_DIRECTORY/dist/main.jsbundle"

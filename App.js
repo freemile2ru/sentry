@@ -26,7 +26,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {setJSExceptionHandler} from 'react-native-exception-handler';
 
 import * as Sentry from '@sentry/react-native';
 
@@ -35,13 +34,12 @@ Sentry.init({
   enableNative: false,
   environment: 'development',
   logLevel: 3,
-  dist: 'release',
-  release: 'org.reactjs.native.example.senntry@1.0+12',
+  // dist: 'release',
+  // release: 'org.reactjs.native.example.senntry@1.0+12',
 });
 
 let originalHandler = ErrorUtils.getGlobalHandler();
-
-setJSExceptionHandler((error, isFatal) => {
+ErrorUtils.setGlobalHandler(function (error, isFatal) {
   Sentry.captureException(new Error(error.message || JSON.stringify(error)));
   originalHandler(error, isFatal);
 });
