@@ -28,7 +28,6 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import {setJSExceptionHandler} from 'react-native-exception-handler';
 
-
 import * as Sentry from '@sentry/react-native';
 
 Sentry.init({
@@ -41,7 +40,7 @@ Sentry.init({
 let originalHandler = ErrorUtils.getGlobalHandler();
 
 setJSExceptionHandler((error, isFatal) => {
-  Sentry.captureException(error);
+  Sentry.captureException(new Error(error.message || JSON.stringify(error)));
   originalHandler(error, isFatal);
 });
 
