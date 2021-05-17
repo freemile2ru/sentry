@@ -8,6 +8,7 @@ if [ "$AGENT_JOBSTATUS" == "Succeeded" ]; then
     BUNDLE_ID_IOS="org.reactjs.native.example.senntry"
 
     SENTRY_VERSION="$BUNDLE_ID_IOS-$APP_VERSION"
+    
 
     cp "$APPCENTER_SOURCE_DIRECTORY/index.ios.map" "$APPCENTER_SOURCE_DIRECTORY/dist/index.ios.map"
     cp "$APPCENTER_SOURCE_DIRECTORY/dummy-sourcemap-main.jsbundle" "$APPCENTER_SOURCE_DIRECTORY/dist/main.jsbundle"
