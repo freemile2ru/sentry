@@ -35,6 +35,8 @@ Sentry.init({
   enableNative: false,
   environment: 'development',
   logLevel: 3,
+  dist: 'release',
+  release: 'org.reactjs.native.example.senntry@1.0+12',
 });
 
 let originalHandler = ErrorUtils.getGlobalHandler();
