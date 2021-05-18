@@ -28,16 +28,21 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import * as Sentry from '@sentry/react-native';
+import {
+  getBuildNumber,
+  getBundleId,
+  getVersion,
+} from 'react-native-device-info';
 
 Sentry.init({
   dsn: 'https://09e60221ff1a4e3cbe21fb212ed48629@o52241.ingest.sentry.io/5761533',
   enableNative: false,
   environment: 'development',
   logLevel: 3,
+  dist: `${getBuildNumber()}`,
+  release: `${getBundleId()}@${getVersion()}+${getBuildNumber()}`,
 });
-
-Sentry.setDist('0.0.1');
-Sentry.setRelease('0.0.1');
+console.log('====>', `${getBundleId()}@${getVersion()}+${getBuildNumber()}`);
 
 let originalHandler = ErrorUtils.getGlobalHandler();
 ErrorUtils.setGlobalHandler(function (error, isFatal) {
