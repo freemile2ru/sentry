@@ -94,16 +94,16 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <TouchableOpacity
-            onPress={() => {
-              let a;
-              console.log(a.works());
-            }}>
-            <Text>Break me</Text>
-          </TouchableOpacity>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
+            <TouchableOpacity
+              onPress={() => {
+                let a;
+                console.log(a());
+              }}>
+              <Text style={{color: Colors.white}}>Break me</Text>
+            </TouchableOpacity>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
