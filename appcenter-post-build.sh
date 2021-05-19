@@ -7,7 +7,7 @@ react-native bundle --dev false --platform android --entry-file index.js --bundl
 
 export SENTRY_PROPERTIES=./ios/sentry.properties
 BUNDLE_ID_IOS="org.reactjs.native.example.senntry"
-APP_VERSION=$(cat package.json | jq -r .version)
+APP_VERSION=$(jq -r .version)
 
 echo "Current branch is $APPCENTER_BUILD_ID, $APP_VERSION"
 SENTRY_VERSION="$BUNDLE_ID_IOS@${APP_VERSION}+$APPCENTER_BUILD_ID"

@@ -33,6 +33,7 @@ import {
   getBundleId,
   getVersion,
 } from 'react-native-device-info';
+import {APPCENTER_BUILD_ID, SENTRY_VERSION} from 'react-native-dotenv';
 
 Sentry.init({
   dsn: 'https://09e60221ff1a4e3cbe21fb212ed48629@o52241.ingest.sentry.io/5761533',
@@ -42,7 +43,12 @@ Sentry.init({
   dist: `${getBuildNumber()}`,
   release: `${getBundleId()}@${getVersion()}+${getBuildNumber()}`,
 });
-console.log('====>', `${getBundleId()}@${getVersion()}+${getBuildNumber()}`);
+console.log(
+  '====>',
+  APPCENTER_BUILD_ID,
+  SENTRY_VERSION,
+  `${getBundleId()}@${getVersion()}+${getBuildNumber()}`,
+);
 
 let originalHandler = ErrorUtils.getGlobalHandler();
 ErrorUtils.setGlobalHandler(function (error, isFatal) {
