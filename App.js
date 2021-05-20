@@ -28,20 +28,28 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import * as Sentry from '@sentry/react-native';
+import {APPCENTER_BUILD_ID} from '@env';
 import Config from 'react-native-config';
-import {getBundleId} from 'react-native-device-info';
+import {
+  getBundleId,
+  getBuildNumber,
+  getVersion,
+} from 'react-native-device-info';
 Sentry.init({
   dsn: 'https://09e60221ff1a4e3cbe21fb212ed48629@o52241.ingest.sentry.io/5761533',
   enableNative: false,
   environment: 'development',
   logLevel: 3,
+  dist: APPCENTER_BUILD_ID,
   // dist: `${getBuildNumber()}`,
-  // release: `${getBundleId()}@${getVersion()}+${getBuildNumber()}`,
+  release: `${getBundleId()}@${getVersion()}+${APPCENTER_BUILD_ID}`,
 });
 console.log(
   '====>',
+  APPCENTER_BUILD_ID,
   Config.APPCENTER_BUILD_ID,
-  Config.SENTRY_VERSION,
+  getBuildNumber(),
+  getVersion(),
   `${getBundleId()}}`,
 );
 
