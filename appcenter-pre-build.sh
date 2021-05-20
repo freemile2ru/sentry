@@ -1,4 +1,4 @@
-git commit -m""brew install jq
+brew install jq
 BUNDLE_ID_IOS="org.reactjs.native.example.senntry"
 APP_VERSION=$(jq -r .version)
 SENTRY_VERSION="$BUNDLE_ID_IOS@${APP_VERSION}+$APPCENTER_BUILD_ID"
