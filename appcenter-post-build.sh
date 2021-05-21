@@ -8,7 +8,7 @@ if [ -n "$APKFile" ]; then
   if [ "$APPCENTER_BRANCH" == "master" ]; then
     ENVIRONMENT = "production"  
   fi
-  echo "========>$ENVIRONMENT"
+  echo "========>$APPCENTER_BRANCH"
   echo "========>"ENVIRONMENT
   APP_VERSION="1.0"
   brew install react-native-cli
