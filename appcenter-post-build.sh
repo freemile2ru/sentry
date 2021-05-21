@@ -9,6 +9,7 @@ if [ -n "$APKFile" ]; then
     ENVIRONMENT = "production"  
   fi
   echo "========>$ENVIRONMENT"
+  echo "========>"ENVIRONMENT
   APP_VERSION="1.0"
   brew install react-native-cli
   BUNDLE_ID="org.reactjs.native.example.senntry"
