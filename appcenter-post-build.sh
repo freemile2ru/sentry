@@ -4,9 +4,9 @@ APKFile=`find "$APPCENTER_SOURCE_DIRECTORY" -name *.apk | head -1`
 if [ -n "$APKFile" ]; then
   echo "We are in adroid ENV"
   export SENTRY_PROPERTIES=./ios/sentry.properties
-  ENVIRONMENT= "$APPCENTER_BRANCH"
-  if [ "$APPCENTER_BRANCH" == "master" ]; then
-    ENVIRONMENT = "production"  
+  ENVIRONMENT=$APPCENTER_BRANCH
+  if [ "$APPCENTER_BRANCH"=="master" ]; then
+    ENVIRONMENT="production"  
   fi
   echo "========>$APPCENTER_BRANCH"
   echo "========>"ENVIRONMENT
